@@ -26,17 +26,17 @@ const BottomNavigation: React.FC = () => {
       <View
         style={{
           flexDirection: "row",
-          backgroundColor: "#6BAED6",
+          backgroundColor: "#3b7d27",
           paddingVertical: 10,
           borderTopWidth: 1,
-          borderTopColor: "#e0e0e0",
+          borderTopColor: "#3b7d27",
         }}
       >
         <TouchableOpacity
           style={{ alignItems: "center", width: screenWidth / 4 }}
           onPress={() => router.push("/crops")}
         >
-          <Ionicons name="leaf" size={24} color="#90A955" />
+          <Ionicons name="leaf" size={24} color="#d5fdc9" />
           <Text>Crops</Text>
         </TouchableOpacity>
 
@@ -44,7 +44,7 @@ const BottomNavigation: React.FC = () => {
           style={{ alignItems: "center", width: screenWidth / 4 }}
           onPress={() => router.push("/community")}
         >
-          <Ionicons name="people" size={24} color="#90A955" />
+          <Ionicons name="people" size={24} color="#d5fdc9" />
           <Text>Community</Text>
         </TouchableOpacity>
 
@@ -52,7 +52,7 @@ const BottomNavigation: React.FC = () => {
           style={{ alignItems: "center", width: screenWidth / 4 }}
           onPress={() => router.push("/dukaan")}
         >
-          <Ionicons name="storefront" size={24} color="#90A955" />
+          <Ionicons name="storefront" size={24} color="#d5fdc9" />
           <Text>Dukaan</Text>
         </TouchableOpacity>
 
@@ -60,7 +60,7 @@ const BottomNavigation: React.FC = () => {
           style={{ alignItems: "center", width: screenWidth / 4 }}
           onPress={() => router.push("/profile")} // ✅ Fix navigation
         >
-          <Ionicons name="person" size={24} color="#90A955" />
+          <Ionicons name="person" size={24} color="#d5fdc9" />
           <Text>You</Text>
         </TouchableOpacity>
       </View>
