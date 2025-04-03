@@ -5,110 +5,67 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Dimensions,
-  StyleSheet,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { useRouter } from "expo-router"; // ✅ Correct import
 
-const BottomNavigation = () => {
-  const router = useRouter();
+const BottomNavigation: React.FC = () => {
+  const router = useRouter(); // ✅ Hook inside the component
   const screenWidth = Dimensions.get("window").width;
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.navContainer}>
-        <NavItem
-          name="home"
-          label="Home"
-          icon="home-outline"
-          router={router}
-          width={screenWidth / 5}
-        />
-        <NavItem
-          name="crops"
-          label="Crops"
-          icon="leaf-outline"
-          router={router}
-          width={screenWidth / 5}
-        />
-        <NavItem
-          name="community"
-          label="Community"
-          icon="people-outline"
-          router={router}
-          width={screenWidth / 5}
-        />
-        <NavItem
-          name="dukaan"
-          label="Dukaan"
-          icon="storefront-outline"
-          router={router}
-          width={screenWidth / 5}
-        />
-        <NavItem
-          name="profile"
-          label="You"
-          icon="person-outline"
-          router={router}
-          width={screenWidth / 5}
-        />
+    <SafeAreaView
+      style={{
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: "green",
+      }}
+    >
+      <View
+        style={{
+          flexDirection: "row",
+          backgroundColor: "#6BAED6",
+          paddingVertical: 10,
+          borderTopWidth: 1,
+          borderTopColor: "#e0e0e0",
+        }}
+      >
+        <TouchableOpacity
+          style={{ alignItems: "center", width: screenWidth / 4 }}
+          onPress={() => router.push("/crops")}
+        >
+          <Ionicons name="leaf" size={24} color="#90A955" />
+          <Text>Crops</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ alignItems: "center", width: screenWidth / 4 }}
+          onPress={() => router.push("/community")}
+        >
+          <Ionicons name="people" size={24} color="#90A955" />
+          <Text>Community</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ alignItems: "center", width: screenWidth / 4 }}
+          onPress={() => router.push("/dukaan")}
+        >
+          <Ionicons name="storefront" size={24} color="#90A955" />
+          <Text>Dukaan</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ alignItems: "center", width: screenWidth / 4 }}
+          onPress={() => router.push("/profile")} // ✅ Fix navigation
+        >
+          <Ionicons name="person" size={24} color="#90A955" />
+          <Text>You</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
-
-// ✅ Define strict route names
-type RouteName = "home" | "crops" | "community" | "dukaan" | "profile";
-
-// ✅ Define Props for TypeScript
-interface NavItemProps {
-  name: RouteName;
-  label: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  router: ReturnType<typeof useRouter>;
-  width: number;
-}
-
-const NavItem: React.FC<NavItemProps> = ({
-  name,
-  label,
-  icon,
-  router,
-  width,
-}) => (
-  <TouchableOpacity
-    style={[styles.navItem, { width }]}
-    onPress={() => router.push(`/${name}` as const)}
-  >
-    <Ionicons name={icon} size={28} color="#2E7D32" />
-    <Text style={styles.label}>{label}</Text>
-  </TouchableOpacity>
-);
-
-const styles = StyleSheet.create({
-  safeArea: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: "#fff",
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
-  },
-  navContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#f8f8f8",
-    paddingVertical: 12,
-  },
-  navItem: {
-    alignItems: "center",
-  },
-  label: {
-    fontSize: 12,
-    color: "#555",
-    marginTop: 4,
-  },
-});
 
 export default BottomNavigation;
