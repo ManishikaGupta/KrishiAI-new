@@ -33,7 +33,7 @@ const BottomNavigation: React.FC = () => {
         }}
       >
         <TouchableOpacity
-          style={{ alignItems: "center", width: screenWidth / 4 }}
+          style={{ alignItems: "center", width: screenWidth / 5 }}
           onPress={() => router.push("/crops")}
         >
           <Ionicons name="leaf" size={24} color="#d5fdc9" />
@@ -41,7 +41,7 @@ const BottomNavigation: React.FC = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{ alignItems: "center", width: screenWidth / 4 }}
+          style={{ alignItems: "center", width: screenWidth / 5 }}
           onPress={() => router.push("/community")}
         >
           <Ionicons name="people" size={24} color="#d5fdc9" />
@@ -49,7 +49,15 @@ const BottomNavigation: React.FC = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{ alignItems: "center", width: screenWidth / 4 }}
+          style={{ alignItems: "center", width: screenWidth / 5 }}
+          onPress={() => router.push("/home")}
+        >
+          <Ionicons name="home" size={24} color="#d5fdc9" />
+          <Text>Home</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ alignItems: "center", width: screenWidth / 5 }}
           onPress={() => router.push("/dukaan")}
         >
           <Ionicons name="storefront" size={24} color="#d5fdc9" />
@@ -57,7 +65,7 @@ const BottomNavigation: React.FC = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{ alignItems: "center", width: screenWidth / 4 }}
+          style={{ alignItems: "center", width: screenWidth / 5 }}
           onPress={() => router.push("/profile")} // ✅ Fix navigation
         >
           <Ionicons name="person" size={24} color="#d5fdc9" />
