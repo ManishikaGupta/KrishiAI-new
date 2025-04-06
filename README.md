@@ -4,6 +4,7 @@ Krishi AI X is a bridge between the traditional knowledge of the farmers and a m
 - Maximize profits by selling when demand is highest.
 - Get better insurance with real-time risk assessment.
 
+https://github.com/user-attachments/assets/68d46a9e-0b2d-4fa1-be32-a4a05237e1e2
 
 ## Get started
 
